@@ -1,13 +1,4 @@
-const randId = () =>
-  Math.trunc(Math.random() * 0xffffffff)
-    .toString(16)
-    .padStart(8, '0')
-
 // console.log(0xffffffff === 4294967295)
-
-console.log(randId())
-
-console.log(initFaculty('Экономический'))
 
 const university = {
   students: [{}],
@@ -44,30 +35,6 @@ const university = {
     )
     return sumIq / this.professors.length
   },
-}
-
-const addresses = []
-const people = []
-
-const address = {
-  id: 1,
-  country: '',
-  area: '',
-  city: '',
-  district: '',
-  street: '',
-  house: '',
-  apartment: 'NONE',
-}
-
-const person = {
-  id: 1,
-  firstName: '',
-  lastName: '',
-  fullName: '',
-  birdthYear: '',
-  age: '',
-  addressId: 1,
 }
 
 const professor = {

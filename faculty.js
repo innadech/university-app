@@ -1,3 +1,5 @@
+const randId = require('./randId.js')
+
 const initFaculty = caption => ({
   id: randId(),
   caption: caption,
@@ -14,4 +16,7 @@ const initFaculty = caption => ({
     this.studentsIds.push(student)
   },
 })
-console.log(initFaculty('Экономический'))
+
+const economic = initFaculty('Экономический')
+
+console.log(economic)
