@@ -29,11 +29,8 @@ const university = {
     return sumAge / this.students.length
   },
   get averateProfessorIq() {
-    const sumAge = this.professors.reduce(
-      (acc, professor) => acc + this.professors.iq,
-      0
-    )
-    return sumIq / this.professors.length
+    const sumIq = professors.reduce((acc, professor) => acc + professor.iq, 0)
+    return sumIq / professors.length
   },
 }
 
