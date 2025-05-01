@@ -2,6 +2,7 @@ const randId = require('./randId.js')
 
 const initFaculty = caption => ({
   id: randId(),
+  addressId: '',
   caption: caption,
   studentsIds: [],
   professorsIds: [],
@@ -10,10 +11,10 @@ const initFaculty = caption => ({
     return this.studentsIds.length
   },
   get countProfessors() {
-    return this.professorsIds.lenght
+    return this.professorsIds.length
   },
-  addStudentsIds(student) {
-    this.studentsIds.push(student)
+  addStudentId(studentId) {
+    this.studentsIds.push(studentId)
   },
 })
 

@@ -1,25 +1,37 @@
 const randId = require('./randId.js')
 
-const initAddress = (country, city, street, house) => ({
-  id: randId(),
-  country: country,
-  city: city,
-  street: street,
-  house: house,
-  fullAddress: '', // computed
-})
-
-let arr = []
-arr.xxx = 42
-console.log(arr.xxx)
-
 const addresses = []
-addresses.add = (...params) => addresses.push(initAddress(...params))
 
-console.log(addresses)
-addresses.add('Germany', 'Berlin', 'Main shtrasse', '14')
-console.log(addresses)
+function createAddress(country, city, street, house) {
+  const address = {
+    id: randId(),
+    country: country,
+    city: city,
+    street: street,
+    house: house,
+    fullAddress: '', // computed
+  }
+  return address
+}
 
-// addresses.findById(42)
+// addresses.add = (...params) => addresses.push(createAddress(...params))
+function addAddress(country, city, street, house) {
+  const address = createAddress(country, city, street, house)
+  addresses.push(address)
+  return address
+}
 
-module.exports = initAddress
+function findAddressById(id) {
+  return addresses.find(address => address.id === id)
+}
+
+// console.log(addresses)
+// addAddress('Germany', 'Berlin', 'Main shtrasse', '14')
+// console.log(addresses)
+
+// const findedAddress = findAddressById('0c6e2538')
+
+module.exports = { addAddress, findAddressById }
+
+// MVC
+// MVVM

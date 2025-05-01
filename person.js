@@ -1,29 +1,62 @@
-const initAddress = require('./address.js')
+const { addAddress, findAddressById } = require('./address.js')
 const randId = require('./randId.js')
 
 const currentYear = 2025
 
-const initPerson = (firstName, lastName, birdthYear) => ({
-  id: randId(),
-  addressId: 0,
-  get address() {
-    return addresses.find(a => a.id === this.addressId)
-  },
-  firstName: firstName,
-  lastName: lastName,
-  birdthYear: birdthYear,
-  fullName: '', // computed
-  age: '', // computed
-  setAddressId(addressId) {
-    this.addressId = addressId
-  },
-})
+// const initPerson = (firstName, lastName, birdthYear) => ({
+//   id: randId(),
+//   addressId: '',
+//   get address() {
+//     return findAddressById(this.addressId)
+//   },
+//   firstName,
+//   lastName,
+//   birdthYear,
+//   fullName: '', // computed
+//   age: '', // computed
+//   setAddressId(addressId) {
+//     this.addressId = addressId
+//   },
+// })
 
 const people = []
 
-// const person = initPerson('James', 'Bond', '1970')
-// const address = initAddress('Germany', 'Berlin', 'Main shtrasse', '14')
+function createPerson(firstName, lastName, birdthYear) {
+  const person = {
+    id: randId(),
+    addressId: '',
+    get address() {
+      return findAddressById(this.addressId)
+    },
+    firstName,
+    lastName,
+    birdthYear,
+    fullName: '', // computed
+    age: '', // computed
+    setAddressId(addressId) {
+      this.addressId = addressId
+    },
+    addAddress() {
+      //
+    },
+  }
+  return person
+}
 
-// person.setAddressId(address.id)
+function addPerson(firstName, lastName, birdthYear) {
+  const person = createPerson(firstName, lastName, birdthYear)
+  people.push(person)
+  return person
+}
 
-// console.log(person)
+function findPersonById(id) {
+  return people.find(person => person.id === id)
+}
+
+const person = addPerson('James', 'Bond', '1970')
+
+const address = addAddress('Germany', 'Berlin', 'Main shtrasse', '14')
+person.setAddressId(address.id)
+
+console.log(person)
+console.log(person.address)
