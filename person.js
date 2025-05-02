@@ -36,8 +36,9 @@ function createPerson(firstName, lastName, birdthYear) {
     setAddressId(addressId) {
       this.addressId = addressId
     },
-    addAddress() {
-      //
+    addAddress(country, city, street, house) {
+      const address = addAddress(country, city, street, house)
+      person.setAddressId(address.id)
     },
   }
   return person
@@ -54,9 +55,6 @@ function findPersonById(id) {
 }
 
 const person = addPerson('James', 'Bond', '1970')
-
-const address = addAddress('Germany', 'Berlin', 'Main shtrasse', '14')
-person.setAddressId(address.id)
 
 console.log(person)
 console.log(person.address)
