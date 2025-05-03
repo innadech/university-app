@@ -31,14 +31,15 @@ function createPerson(firstName, lastName, birdthYear) {
     firstName,
     lastName,
     birdthYear,
-    fullName: '', // computed
-    age: '', // computed
+    fullName: '', // computed get
+    age: '', // computed get
     setAddressId(addressId) {
       this.addressId = addressId
     },
     addAddress(country, city, street, house) {
       const address = addAddress(country, city, street, house)
       person.setAddressId(address.id)
+      return address
     },
   }
   return person
@@ -54,7 +55,4 @@ function findPersonById(id) {
   return people.find(person => person.id === id)
 }
 
-const person = addPerson('James', 'Bond', '1970')
-
-console.log(person)
-console.log(person.address)
+module.exports = { addPerson, findPersonById }

@@ -1,5 +1,13 @@
-let x = require('./not-main.js')
+let lib = require('./lib.js')
+lib.push('yo')
+console.log(lib)
 
-// let lib = require('./lib.js')
+let lib2 = require('./lib.js')
+lib2.push('foo')
+console.log(lib2)
 
-console.log('main')
+let notMain = require('./not-main.js')
+console.log(notMain)
+
+// notMain
+// console.log(notMain)

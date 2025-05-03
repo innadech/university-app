@@ -1,5 +1,5 @@
 let lib = require('./lib.js')
+lib.push('bar')
+console.log(lib)
 
-console.log('not-main')
-
-module.exports = 100
+// module.exports = arr
