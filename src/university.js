@@ -1,4 +1,4 @@
-// console.log(0xffffffff === 4294967295)
+'// console.log(0xffffffff === 4294967295)
 
 const university = {
   students: [{}],

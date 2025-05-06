@@ -31,8 +31,15 @@ function createPerson(firstName, lastName, birdthYear) {
     firstName,
     lastName,
     birdthYear,
-    fullName: '', // computed get
-    age: '', // computed get
+    // fullName: '', // computed get
+    // age: '', // computed get
+
+    get fullName() {
+      return this.firstName + ' ' + this.lastName
+    },
+    get age() {
+      return currentYear - this.birdthYear
+    },
     setAddressId(addressId) {
       this.addressId = addressId
     },
