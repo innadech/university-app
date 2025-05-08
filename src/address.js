@@ -9,7 +9,12 @@ function createAddress(country, city, street, house) {
     city: city,
     street: street,
     house: house,
-    fullAddress: '', // computed
+    // fullAddress: '', // computed
+    get fullAddress() {
+      return (
+        this.country + ' ' + this.city + ' ' + this.street + ' ' + this.house
+      )
+    },
   }
   return address
 }
